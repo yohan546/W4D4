@@ -42,10 +42,21 @@ class Array
     end
 
     def stock_picker
-        (0...self.length).each do |i|
-            (0...self.length).each do |i2|
-                if i2 > i  
+        current_profit = 0
+        greatest_profit = 0
+        greatest_profit_pair = []
+        (0...self.length).each do |buy_date|
+            ((buy_date+1)...self.length).each do |sell_date|
+                pair = [buy_date,sell_date]
+                profit_of_pair = self[sell_date] - self[buy_date]
+                current_profit = profit_of_pair
+                if current_profit > greatest_profit
+                    greatest_profit = current_profit
+                    current_profit = 0
+                    greatest_profit_pair = pair
+                end
             end
         end
+        greatest_profit_pair
     end
 end

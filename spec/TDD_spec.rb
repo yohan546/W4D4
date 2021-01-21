@@ -30,7 +30,7 @@ describe Array do
 
     describe "stock_picker" do
         it "should return the most profitable pair of days" do 
-            expect([100, 99, 92, 102, 105, 96, 106]).to eq([2,6])
+            expect([100, 99, 92, 102, 105, 96, 106].stock_picker).to eq([2,6])
         end
     end
 
