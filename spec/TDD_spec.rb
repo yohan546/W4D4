@@ -21,9 +21,17 @@ describe Array do
             expect(two_sum_array.two_sum).to_not eq([[4,0], [3,2]])
         end
     end
-    describe "#transpose" do
+
+    describe "#my_transpose" do
         it "should convert between row oriented and col oriented 2D array" do
-            
+            expect([[0, 1, 2], [3, 4, 5],[6, 7, 8]].my_transpose).to eq([[0, 3, 6],[1, 4, 7],[2, 5, 8]])
         end
     end
+
+    describe "stock_picker" do
+        it "should return the most profitable pair of days" do 
+            expect([100, 99, 92, 102, 105, 96, 106]).to eq([2,6])
+        end
+    end
+
 end
