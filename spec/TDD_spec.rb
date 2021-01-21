@@ -35,3 +35,23 @@ describe Array do
     end
 
 end
+
+describe "Board" do
+    let (:board) {Board.new(3)}
+    describe "#won?" do 
+        it "should end the game and print you won" do
+            expect(board.won?).to eq("you won")
+        end
+    end
+
+    describe "#move" do
+        it "it should move the disk if disk is smaller than the next position" do 
+            expect([[5,3,1],[2],[4]].move([1][-1], [2])).to eq([[5,3,1],[],[4,2]]) 
+            expect([[5,3,1],[2],[4]].move([1][-1], [0])).to_not eq([[5,3,1,2],[],[4]]) 
+        end
+
+        
+    end
+
+
+end
