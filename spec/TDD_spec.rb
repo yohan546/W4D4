@@ -37,17 +37,18 @@ describe Array do
 end
 
 describe "Board" do
-    let (:board) {Board.new(3)}
+    let (:board) {double("Board", :won? => true)}
+    
+
     describe "#won?" do 
         it "should end the game and print you won" do
-            expect(board.won?).to eq("you won")
+            allow(board).to receive(:won?).and_return(false)
         end
     end
 
     describe "#move" do
         it "it should move the disk if disk is smaller than the next position" do 
-            expect([[5,3,1],[2],[4]].move([1][-1], [2])).to eq([[5,3,1],[],[4,2]]) 
-            expect([[5,3,1],[2],[4]].move([1][-1], [0])).to_not eq([[5,3,1,2],[],[4]]) 
+            expect(board.move).to_not eq("invalid move") 
         end
 
         
